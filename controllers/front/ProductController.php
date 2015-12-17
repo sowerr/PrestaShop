@@ -453,7 +453,7 @@ class ProductControllerCore extends FrontController
 
                 $combinations[$row['id_product_attribute']]['attributes_values'][$row['id_attribute_group']] = $row['attribute_name'];
                 $combinations[$row['id_product_attribute']]['attributes'][] = (int)$row['id_attribute'];
-                $combinations[$row['id_product_attribute']]['price'] = (float)$row['price'];
+                $combinations[$row['id_product_attribute']]['price'] = (float)Tools::convertPrice($row['price'],Context::getContext()->currency);
 
                 // Call getPriceStatic in order to set $combination_specific_price
                 if (!isset($combination_prices_set[(int)$row['id_product_attribute']])) {
